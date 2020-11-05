@@ -5,10 +5,9 @@
 \usepackage{graphicx}
 \usepackage[export]{adjustbox}
 \usepackage{caption}
-\usepackage{subcaption}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
+
+\cfoot{}
+\graphicspath{ {./Imagen/} }
 
 \title{Plantilla Fes Acatlán, UNAM}
 \author{Edgar David Cardoso Olvera}
@@ -59,31 +58,31 @@
 	\today
 	\end{center}
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% Indice
+
+\addcontentsline{toc}{chapter}{Índice general}
 \tableofcontents
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Capitulo 1
-    \chapter{Introducción}
-    Una de las necesidad básicas y primordiales del ser humano es la vivienda, es por eso que el sector inmobiliario es tan importante para los países. Este mercado puede afectar factores tanto políticos como económicos, como se vio en la crisis inmobiliaria de 2008 que daño a toda la economía mundial.\\ \\
-    En México, siendo uno de los países con mayor población mundial, el mercado inmobiliario es uno de los sectores que mantiene a flote el Producto Interno Bruto. En el primer trimestre de 2020 el mercado de bienes raíces represento un 10\% del PIB en México, contribuyendo con 2.4 billones de pesos según datos de Inegi.
+\chapter{Introducción}
+Una de las necesidad básicas y primordiales del ser humano es la vivienda, es por eso que el sector inmobiliario es tan importante para los países. Este mercado puede afectar factores tanto políticos como económicos, como se vio en la crisis inmobiliaria de 2008 que daño a toda la economía mundial.\\ \\
+En México, siendo uno de los países con mayor población mundial, el mercado inmobiliario es uno de los sectores que mantiene a flote el Producto Interno Bruto. En el primer trimestre de 2020 el mercado de bienes raíces represento un 10\% del PIB en México, contribuyendo con 2.4 billones de pesos según datos de Inegi.
 
     
-    \section{Objetivo}
-    El objetivo principal de este proyecto es analizar y conocer el comportamiento del mercado inmobiliario mexicano a partir del año 2013 a 2016, esto con ayuda de la base de datos más grande del mundo, Internet. Se analizarán componentes primordiales en anuncios de venta y renta de inmuebles en internet, como lo son: fechas, precios, tipo de inmueble, ubicación, superficie, descripción, entre otras. Todo lo anterior con la finalidad de comprender uno de los mercados más grandes e importantes en México.
+\section{Objetivo}
+El objetivo principal de este proyecto es analizar y conocer el comportamiento del mercado inmobiliario mexicano a partir del año 2013 a 2016, esto con ayuda de la base de datos más grande del mundo, Internet. Se analizarán componentes primordiales en anuncios de venta y renta de inmuebles en internet, como lo son: fechas, precios, tipo de inmueble, ubicación, superficie, descripción, entre otras. Todo lo anterior con la finalidad de comprender uno de los mercados más grandes e importantes en México.
     
-    \section{Metodología del Análisis}
-	Al recabar la información del mercado inmobiliario en México se realizará un análisis con respecto a la calidad de los datos, esto con el fin de mejorar la toma de decisiones y facilitar el procesamiento de la información. Lo anterior tienen como objetivo conocer la falta de información en la base de datos principal y comprender que características son importantes para el proyecto. De igual manera se le dará un formato homogéneo a la información para así poder trabajar de una manera más eficiente. \\
+\section{Metodología del Análisis}
+Al recabar la información del mercado inmobiliario en México se realizará un análisis con respecto a la calidad de los datos, esto con el fin de mejorar la toma de decisiones y facilitar el procesamiento de la información. Lo anterior tienen como objetivo conocer la falta de información en la base de datos principal y comprender que características son importantes para el proyecto. De igual manera se le dará un formato homogéneo a la información para así poder trabajar de una manera más eficiente. \\
 	
-	Después se realiza un análisis estadístico para conocer las distribuciones de los datos y su comportamiento, esto es necesario para identificar valores fuera de los rangos comunes dentro de la base. Este mismo análisis ayudará a la creación de visualizaciones, que facilitaran la compresión de la información del mercado inmobiliario.
+Después se realiza un análisis estadístico para conocer las distribuciones de los datos y su comportamiento, esto es necesario para identificar valores fuera de los rangos comunes dentro de la base. Este mismo análisis ayudará a la creación de visualizaciones, que facilitaran la compresión de la información del mercado inmobiliario.
 	
-	\section{Fuente de Datos}
-	El conjunto de datos se obtuvo de la página web https://data.world/. La fuente original de los datos contiene dos archivos de inmuebles publicados en México del año 2013 al 2016 divididos por el tipo de operación: Venta y Renta. Los archivos anteriores fueron unidos para crear una base de datos más completa y funcional con un total de 188,525 registros. Un agradecimiento al usuario @properati por haber proporcionado esta fuente de datos esencial para el análisis inmobiliario en México.
+\section{Fuente de Datos}
+El conjunto de datos se obtuvo de la página web https://data.world/. La fuente original de los datos contiene dos archivos de inmuebles publicados en México del año 2013 al 2016 divididos por el tipo de operación: Venta y Renta. Los archivos anteriores fueron unidos para crear una base de datos más completa y funcional con un total de 188,525 registros. Un agradecimiento al usuario @properati por haber proporcionado esta fuente de datos esencial para el análisis inmobiliario en México.
 	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Capitulo 2
-    \chapter{Análisis Exploratorio de Datos}
-    El análisis exploratorio de la información tiene como objetivo reconocer patrones significativos en nuestros datos, encontrar irregularidades en la información y comprende de manera rápida y eficaz el conocimiento que estos transmiten. También brindará información relevante para crear visualizaciones para un mejor entendimiento.
+
+\chapter{Análisis Exploratorio de Datos}
+El análisis exploratorio de la información tiene como objetivo reconocer patrones significativos en nuestros datos, encontrar irregularidades en la información y comprende de manera rápida y eficaz el conocimiento que estos transmiten. También brindará información relevante para crear visualizaciones para un mejor entendimiento.
     
-    \section{Diccionario de Datos}
-    En la siguiente tabla se da a conocer las características que se tienen de cada publicación dentro de la tabla de datos, esto es fundamental para conocer con herramientas contamos para el análisis de la información.
+\section{Diccionario de Datos}
+En la siguiente tabla se da a conocer las características que se tienen de cada publicación dentro de la tabla de datos, esto es fundamental para conocer con que herramientas contamos para el análisis de la información.
     
 
     \begin{center}
@@ -150,94 +149,94 @@
         \item Variables Discretas:\\
         operation, property\_type, currency, estado, municipio, colonia, geonames\_id
         \item Variables de Fechas:\\
-        craeted\_on
+        created\_on
         \item Variables de Texto:\\
         properati\_url, description, title, image\_thumbnail
     \end{itemize} 
     
     \section{Completitud}
     \begin{center}
-    \begin{tabular}{||c|c||} 
-        \hline
-        Nombre de la Variable & \% De Nulos \\
-        \hline\hline
-        created\_on & 0.00\%\\
-        \hline
-        operation & 0.00\%\\
-        \hline
-        property\_type & 0.00\%\\
-        \hline
-        place\_name & 0.00\%\\
-        \hline
-        place\_with\_parent\_names & 0.00\%\\
-        \hline
-        geonames\_id 	& 	100.00\%\\
-        \hline
-        lat-lon & 16.94\%\\
-        \hline
-        lat & 16.94\%\\
-        \hline
-        lon & 16.94\%\\
-        \hline
-        price & 1.39\%\\
-        \hline
-        currency & 1.39\%\\
-        \hline
-        price\_aprox\_local\_currency & 1.39\%\\
-        \hline
-        price\_aprox\_usd             &   1.39\%\\
-        \hline
-        surface\_total\_in\_m2     &      48.21\%\\
-        \hline
-        surface\_covered\_in\_m2    &      3.95\%\\
-        \hline
-        price\_usd\_per\_m2 	& 	58.79\%\\
-        \hline
-        price\_per\_m2             &     11.23\%\\
-        \hline
-        floor 	& 	84.77\%\\
-        \hline
-        rooms 	& 	96.78\%\\
-        \hline
-        expenses 	& 	99.89\%\\
-        \hline
-        properati\_url            &      0.00\%\\
-        \hline
-        description               &     0.00\%\\
-        \hline
-        title                      &    0.00\%\\
-        \hline
-        image\_thumbnail             &   2.93\%\\
-        \hline
+        \begin{tabular}{||c|c||} 
+            \hline
+            Nombre de la Variable & \% De Nulos \\
+            \hline\hline
+            created\_on & 0.00\%\\
+            \hline
+            operation & 0.00\%\\
+            \hline
+            property\_type & 0.00\%\\
+            \hline
+            place\_name & 0.00\%\\
+            \hline
+            place\_with\_parent\_names & 0.00\%\\
+            \hline
+            geonames\_id 	& 	100.00\%\\
+            \hline
+            lat-lon & 16.94\%\\
+            \hline
+            lat & 16.94\%\\
+            \hline
+            lon & 16.94\%\\
+            \hline
+            price & 1.39\%\\
+            \hline
+            currency & 1.39\%\\
+            \hline
+            price\_aprox\_local\_currency & 1.39\%\\
+            \hline
+            price\_aprox\_usd             &   1.39\%\\
+            \hline
+            surface\_total\_in\_m2     &      48.21\%\\
+            \hline
+            surface\_covered\_in\_m2    &      3.95\%\\
+            \hline
+            price\_usd\_per\_m2 	& 	58.79\%\\
+            \hline
+            price\_per\_m2             &     11.23\%\\
+            \hline
+            floor 	& 	84.77\%\\
+            \hline
+            rooms 	& 	96.78\%\\
+            \hline
+            expenses 	& 	99.89\%\\
+            \hline
+            properati\_url            &      0.00\%\\
+            \hline
+            description               &     0.00\%\\
+            \hline
+            title                      &    0.00\%\\
+            \hline
+            image\_thumbnail             &   2.93\%\\
+            \hline
  
-    \end{tabular}
+        \end{tabular}
     \end{center}
     
     Algunas variables como geonames\_id que contiene un sólo dato o la variable expense con 207 datos serán eliminados en los siguientes pasos ya que contienen mas del 90\% de información nula, lo cuál perjudica el análisis de la información.
     
     \section{Estadística Descriptiva}
-\begin{center}
-\begin{tabular}{||c|c|c|c|c|c|c|c|c||}
-\hline
-& c\_lat           & c\_lon            & c\_price         & c\_price\_aprox\_local\_currency \\
-\hline\hline
-count & 156134           & 156134            & 185454           & 185454                           \\
-mean  & 21.034041540242  & -99.0133530053932 & 2559721.73365363 & 3183243.06557337                 \\
-std   & 2.97352809912203 & 5.17021181128755  & 6038333.16636718 & 7963734.31420877                 \\
-min   & 14.843818        & -117.228632       & 50               & 940.42                           \\
-10\%  & 18.917542        & -103.438171       & 13500            & 14864.16                         \\
-20\%  & 19.16150848      & -101.00246024     & 155000           & 252693.13                        \\
-30\%  & 19.367960277     & -100.356804       & 580000           & 672019.707                       \\
-40\%  & 19.454332        & -99.6030794       & 950000           & 1090307.49                       \\
-50\%  & 20.1242815       & -99.2277873       & 1400000          & 1565706.81                       \\
-60\%  & 20.6965424       & -99.168088        & 1880000          & 2105776.52                       \\
-70\%  & 21.039522        & -98.979619523     & 2570554          & 2873765.76                       \\
-80\%  & 22.272658848     & -97.837899572     & 3567479.99999999 & 4063873.78                       \\
-90\%  & 25.643093        & -89.636932        & 5900000          & 6936675.98                       \\
-max   & 41.577487        & 99.206936         & 945000000        & 936451275.4      \\                   
-\hline
-\end{tabular}
-\end{center}
+    \begin{center}
+    \begin{tabular}{||c|c|c|c|c|c|c|c|c||}
+    \hline
+    & c\_lat           & c\_lon            & c\_price         & c\_price\_aprox\_local\_currency \\
+    \hline\hline
+    count & 156134           & 156134            & 185454           & 185454                           \\
+    mean  & 21.034041540242  & -99.0133530053932 & 2559721.73365363 & 3183243.06557337                 \\
+    std   & 2.97352809912203 & 5.17021181128755  & 6038333.16636718 & 7963734.31420877                 \\
+    min   & 14.843818        & -117.228632       & 50               & 940.42                           \\
+    10\%  & 18.917542        & -103.438171       & 13500            & 14864.16                         \\
+    20\%  & 19.16150848      & -101.00246024     & 155000           & 252693.13                        \\
+    30\%  & 19.367960277     & -100.356804       & 580000           & 672019.707                       \\
+    40\%  & 19.454332        & -99.6030794       & 950000           & 1090307.49                       \\
+    50\%  & 20.1242815       & -99.2277873       & 1400000          & 1565706.81                       \\
+    60\%  & 20.6965424       & -99.168088        & 1880000          & 2105776.52                       \\
+    70\%  & 21.039522        & -98.979619523     & 2570554          & 2873765.76                       \\
+    80\%  & 22.272658848     & -97.837899572     & 3567479.99999999 & 4063873.78                       \\
+    90\%  & 25.643093        & -89.636932        & 5900000          & 6936675.98                       \\
+    max   & 41.577487        & 99.206936         & 945000000        & 936451275.4      \\                   
+    \hline
+    \end{tabular}
+    \end{center}
 
 \begin{center}
 \begin{tabular}{||c|c|c|c|c|c|c|c|c||}
@@ -270,7 +269,117 @@ En el caso del precio de propiedades se analizará el valor máximo de esta vari
 La variable superficie total será analizada detalladamente, ya que en el primer percentil la longitud total es de 0 metros cuadrados.\\
     
     \section{Visualización de Datos}
-    Gráficas
+    Esta sección tiene como objetivo comprender de forma intuitiva y visual la información del mercado inmobiliario en México, brindará la capacidad de reconocer patrones en los datos, encontrar información errónea y comprender cuales son las características principales para este análisis.
+    
+        \subsection{Geográfica}
+            \subsubsection{Latitud}
+            \begin{center}
+                \includegraphics[scale=0.5]{hist_lat.png}
+            \end{center}
+                En el gráfico anterior se observa la distribución de las latitudes geográficas, se puede notar, gracias al rango de latitudes, que existen coordenadas mayores a 35, estos son valores inusuales ya que no existe una cantidad significativa de valores para dicha latitud.
+                
+            \subsubsection{Longitud}
+            \begin{center}
+                \includegraphics[scale=0.5]{hist_long.png}
+            \end{center}
+                De igual manera notamos que el rango de longitudes es muy amplio y hay valores que estan en una longitud mayor a 90, lo que indica la existencia de valores extremos en esta variable.
+            
+        \subsection{Estados}
+            \subsubsection{Publicaciones}
+            \begin{center}
+            \includegraphics[scale=0.5]{pub_por_est.png}
+            \end{center}
+            Se puede notar que los estados con mayor población en México tambien cuenta con el mayor número de publicaciones de inmuebles, esto puede ser ocasionado por la alta demanada que existen en estos sitios.
+            
+            \subsubsection{Precios}
+            \begin{center}
+            \includegraphics[scale=0.5]{median_prec_est.png}
+            \end{center}
+            Observamos que los lugares con una mayor mediana de precios son estados donde su mayor ingreso económico es el turismo. El incremento en precios puede ser debido a una cercanía a sitios vacacionales con un gran flujo de visitantes. De igual manera observamos que estos estados son de clima caliente, lo que puede indicar que las personas buscan climas más cálidos.
+            
+\subsection{Municipios}
+\subsubsection{Publicaciones}
+\begin{center}
+\includegraphics[scale=0.5]{mun_public.png}
+\end{center}
+La mayoría de publicaciones de municipios se encuentran en las capitales de los estados, aunque existe una gran cantidad de valores nulos dentro de dicha variable.
+
+\subsubsection{Precio}
+\begin{center}
+\includegraphics[scale=0.5]{prec_muni.png}
+\end{center}
+Observamos que los municipio que en mediana tienen un precio mayor son municipios no tan conocidos, esto puede ser debido a un error en el precio o dichos municipios contienen pocas publicaciones de inmuebles con valores muy altos.
+
+\subsection{Venta y Renta}
+\subsubsection{Publicaciones}
+\begin{center}
+\includegraphics[scale=0.5]{venta_renta.png}
+\end{center}
+Existe una mayor cantidad de inmuebles en venta dentro de todo el conjunto de datos.
+
+\subsubsection{Precio de Venta}
+\begin{center}
+\includegraphics[scale=0.5]{dist_prec.png}
+\end{center}
+Observamos que la distribución de precios de venta se concentra a la izquierda de la gráfica, lo que nos da a entender que existen valores extremos que deben ser analizados, ya que la gráfica indica que existen inmuebles con valores mayores a los 900 millones de pesos.
+
+\subsubsection{Precio de Venta Menor a 7 Millones de Pesos}
+\begin{center}
+\includegraphics[scale=0.5]{dist_prec_7M.png}
+\end{center}
+Al limitar las publicaciones por un precio menor a los 7 millones de pesos, que representa el 90\% de los precios según el análisis descriptivo hecho anteriormente, observamos una distribución más realista del mercado inmobiliario mexicano.
+
+\subsubsection{Precio de Renta}
+\begin{center}
+\includegraphics[scale=0.5]{dist_prec_renta.png}
+\end{center}
+De igual manera que con la venta, la distribución de precios de los inmuebles en renta contiene valores extremos que afectan el análisis de este mercado.
+
+\subsubsection{Precio de Renta Menor a 250 Mil Pesos}
+\begin{center}
+\includegraphics[scale=0.5]{dist_prec_renta_250m.png}
+\end{center}
+Limitando las publicaciones menores de 250 mil pesos de renta observamos nuevamente una distribución más realista del mercado mexicano.
+
+\subsection{Moneda}
+\subsubsection{Publicaciones por Moneda}
+\begin{center}
+\includegraphics[scale=0.5]{dist_moneda.png}
+\end{center}
+Se puede observar que no todas las monedas en las publicaciones son Pesos mexicano, lo que puede generar un sesgo en la información, estos registros deben ser eliminados para una comprensión correcta del mercado.
+
+\subsection{Tipo de Inmueble}
+\subsubsection{Distribución de Precios por Tipo de Inmueble}
+\begin{center}
+\includegraphics[scale=0.42]{dist_tipo.png}
+\end{center}
+Observamos que las casas y departamentos tienen una distribución parecida en los precios, con una reducción de precios en los departamentos. No existe una distribución de precios en el mercado de Pent House, ya que solo existen publicaciones en la Ciudad de México. Por últimos los precios en tiendas son muy bajo a excepción de los estados de Morelos y Sinaloa, esto puede ser debido a la renta de bodegas en dichos estados.
+
+\subsection{Fechas}
+\subsubsection{Publicaciones por Mes}
+\begin{center}
+\includegraphics[scale=0.5]{conteo_mes.png}
+\end{center}
+Se puede destacar el aumento de publicaciones en los meses de Agosto, Septiembre y Octubre. Esto puede ser debido a las vacaciones de verano, donde las personas tienen más tiempo libre en los meses de Junio y Julio para tomar fotos y crear descripciones de sus inmuebles para así publicarlos en los meses subsecuentes.
+
+\subsubsection{Publicaciones por Día}
+\begin{center}
+\includegraphics[scale=0.5]{conteo_dia.png}
+\end{center}
+Los días con mayor número de publicaciones son los sábados, esto puede ser ocasionado al calendario laboral en México, ya que la mayoría de los trabajadores descansan sábados y domingos, aunque en domingo no existen tantas publicaciones, probablemente originado por la cultura mexicana de convivencia familiar en este día.
+
+\subsubsection{Precios por Mes}
+\begin{center}
+\includegraphics[scale=0.5]{precio_mes.png}
+\end{center}
+A comparación del aumento de publicaciones en los meses de Agosto a Octubre, los precios bajan en dichos meses, con un valor mínimo en el mes de Octubre. Este dato debe ser comparado con las tasas de créditos hipotecarios o la cantidad de préstamos que se realizan en dicho mes, para comprender porque se origina este fenómeno.
+
+\subsection{Superficie}
+\subsubsection{Estado}
+\begin{center}
+\includegraphics[scale=0.5]{sup_est.png}
+\end{center}
+Se puede observar que la mediana en superficie de un imueble está relacionada con el tamaño del estado en el que se encuentre, entre más grande el estado, mayor superficie tendrán sus inmuebles.
 
 
-\end{document}
+\end{document}\\
