@@ -1,0 +1,276 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\title{Plantilla Fes Acatlán, UNAM}
+\author{Edgar David Cardoso Olvera}
+\date{\today}
+
+
+\begin{document}
+	
+	\includegraphics[width=0.2\textwidth]{partes/Imagen/unam.png}
+	\includegraphics[width=0.24\textwidth, right=12cm]{partes/Imagen/FESAc.png}
+	
+	\begin{center}
+	\vspace{0.8cm}
+	\LARGE
+	UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO 
+	
+	\vspace{0.8cm}
+	\LARGE
+	FACULTAD DE ESTUDIOS SUPERIORES ACATLÁN
+	
+	\vspace{1.7cm}	
+	\Large
+	\textbf{Proyecto Final – Módulo I\\ Análisis del Mercado Inmobiliario en México de 2013 a 2016}
+	
+
+	\vspace{1.3cm}
+	\normalsize	
+	PRESENTA \\
+	\vspace{.3cm}
+	\large
+	\textbf{Edgar David Cardoso Olvera \\ 314551885}
+	
+	\vspace{1.3cm}
+	\normalsize	
+	PROFESOR \\
+	\vspace{.3cm}
+	\large
+	\textbf{Carla Paola Malerva Resendiz}
+	
+	\vspace{1.3cm}
+	\normalsize	
+	DIPLOMADO \\
+	\vspace{.3cm}
+	\large
+	\textbf{Ciencia de Datos}
+	
+	\vspace{1.3cm}
+	\today
+	\end{center}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Indice
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Capitulo 1
+    \chapter{Introducción}
+    Una de las necesidad básicas y primordiales del ser humano es la vivienda, es por eso que el sector inmobiliario es tan importante para los países. Este mercado puede afectar factores tanto políticos como económicos, como se vio en la crisis inmobiliaria de 2008 que daño a toda la economía mundial.\\ \\
+    En México, siendo uno de los países con mayor población mundial, el mercado inmobiliario es uno de los sectores que mantiene a flote el Producto Interno Bruto. En el primer trimestre de 2020 el mercado de bienes raíces represento un 10\% del PIB en México, contribuyendo con 2.4 billones de pesos según datos de Inegi.
+
+    
+    \section{Objetivo}
+    El objetivo principal de este proyecto es analizar y conocer el comportamiento del mercado inmobiliario mexicano a partir del año 2013 a 2016, esto con ayuda de la base de datos más grande del mundo, Internet. Se analizarán componentes primordiales en anuncios de venta y renta de inmuebles en internet, como lo son: fechas, precios, tipo de inmueble, ubicación, superficie, descripción, entre otras. Todo lo anterior con la finalidad de comprender uno de los mercados más grandes e importantes en México.
+    
+    \section{Metodología del Análisis}
+	Al recabar la información del mercado inmobiliario en México se realizará un análisis con respecto a la calidad de los datos, esto con el fin de mejorar la toma de decisiones y facilitar el procesamiento de la información. Lo anterior tienen como objetivo conocer la falta de información en la base de datos principal y comprender que características son importantes para el proyecto. De igual manera se le dará un formato homogéneo a la información para así poder trabajar de una manera más eficiente. \\
+	
+	Después se realiza un análisis estadístico para conocer las distribuciones de los datos y su comportamiento, esto es necesario para identificar valores fuera de los rangos comunes dentro de la base. Este mismo análisis ayudará a la creación de visualizaciones, que facilitaran la compresión de la información del mercado inmobiliario.
+	
+	\section{Fuente de Datos}
+	El conjunto de datos se obtuvo de la página web https://data.world/. La fuente original de los datos contiene dos archivos de inmuebles publicados en México del año 2013 al 2016 divididos por el tipo de operación: Venta y Renta. Los archivos anteriores fueron unidos para crear una base de datos más completa y funcional con un total de 188,525 registros. Un agradecimiento al usuario @properati por haber proporcionado esta fuente de datos esencial para el análisis inmobiliario en México.
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Capitulo 2
+    \chapter{Análisis Exploratorio de Datos}
+    El análisis exploratorio de la información tiene como objetivo reconocer patrones significativos en nuestros datos, encontrar irregularidades en la información y comprende de manera rápida y eficaz el conocimiento que estos transmiten. También brindará información relevante para crear visualizaciones para un mejor entendimiento.
+    
+    \section{Diccionario de Datos}
+    En la siguiente tabla se da a conocer las características que se tienen de cada publicación dentro de la tabla de datos, esto es fundamental para conocer con herramientas contamos para el análisis de la información.
+    
+
+    \begin{center}
+        \begin{tabular}{||c|c|c||} 
+        \hline
+        Nombre de la Variable & Tipo de Dato & Descripción \\
+        \hline\hline
+        created\_on  & String & Fecha de Publicación \\
+        \hline
+        operation & String & Tipo de Operacion: Venta o Renta \\
+        \hline
+        property\_type & String & Tipo de Propiedad: Casa, Departamento, Tienda, PH\\
+        \hline
+        place\_name & String & Nombre de Municipio o Colonia\\ 
+        \hline
+        place\_with\_parent\_names & String & Ubicacion con País, Estado, Municipio, Colonia\\
+        \hline
+        geonames\_id & String & ID Geofráfico\\
+        \hline
+        lat-lon & String & Latitud y Longitud Unidas\\
+        \hline
+        lat & Float64 & Latitud con Decimales\\
+        \hline
+        lon & Float64 & Longitud con Decimales\\
+        \hline
+        price & Float64 & Precio de Inmueble\\
+        \hline
+        currency & String & Tipo de Moneda en la Publicación\\
+        \hline
+        price\_aprox\_local\_currency & Float64 & Precio Aproximado en Pesos Mexicanos\\
+        \hline
+        price\_aprox\_usd & Float64 & Precio Aproximado en Dólares Americanos\\
+        \hline
+        surface\_total\_in\_m2 & Float64 & Superficie total en m2\\
+        \hline
+        surface\_covered\_in\_m2 & Float64 & Superficie construida en m2\\
+        \hline
+        price\_usd\_per\_m2 & Float64 & Precio en Dólares Americanos por m2\\
+        \hline
+        price\_per\_m2 & Float64 & Precio por m2\\
+        \hline
+        floor & Float64 & Piso de Departamento\\
+        \hline
+        rooms & Float64 & Número de Cuartos\\
+        \hline
+        expenses & Float64 & Gastos Adicionales\\
+        \hline
+        properati\_url & String & Dirección Web\\
+        \hline
+        description & String & Descripción del Inmueble\\
+        \hline
+        title & String & Título del Anuncio\\
+        \hline
+        image\_thumbnail & String & Dirección Imagen\\
+        \hline
+ 
+        \end{tabular}
+    \end{center}
+    
+    \section{Tipos de Variables}
+    \begin{itemize}
+        \item Variables Continuas:\\
+        lat, lon, price, price\_aprox\_local\_currency, price\_aprox\_usd, surface\_total\_in\_m2, surface\_covered\_in\_m2, price\_per\_m2, price\_usd\_per\_m2, floor, rooms, expense
+        \item Variables Discretas:\\
+        operation, property\_type, currency, estado, municipio, colonia, geonames\_id
+        \item Variables de Fechas:\\
+        craeted\_on
+        \item Variables de Texto:\\
+        properati\_url, description, title, image\_thumbnail
+    \end{itemize} 
+    
+    \section{Completitud}
+    \begin{center}
+    \begin{tabular}{||c|c||} 
+        \hline
+        Nombre de la Variable & \% De Nulos \\
+        \hline\hline
+        created\_on & 0.00\%\\
+        \hline
+        operation & 0.00\%\\
+        \hline
+        property\_type & 0.00\%\\
+        \hline
+        place\_name & 0.00\%\\
+        \hline
+        place\_with\_parent\_names & 0.00\%\\
+        \hline
+        geonames\_id 	& 	100.00\%\\
+        \hline
+        lat-lon & 16.94\%\\
+        \hline
+        lat & 16.94\%\\
+        \hline
+        lon & 16.94\%\\
+        \hline
+        price & 1.39\%\\
+        \hline
+        currency & 1.39\%\\
+        \hline
+        price\_aprox\_local\_currency & 1.39\%\\
+        \hline
+        price\_aprox\_usd             &   1.39\%\\
+        \hline
+        surface\_total\_in\_m2     &      48.21\%\\
+        \hline
+        surface\_covered\_in\_m2    &      3.95\%\\
+        \hline
+        price\_usd\_per\_m2 	& 	58.79\%\\
+        \hline
+        price\_per\_m2             &     11.23\%\\
+        \hline
+        floor 	& 	84.77\%\\
+        \hline
+        rooms 	& 	96.78\%\\
+        \hline
+        expenses 	& 	99.89\%\\
+        \hline
+        properati\_url            &      0.00\%\\
+        \hline
+        description               &     0.00\%\\
+        \hline
+        title                      &    0.00\%\\
+        \hline
+        image\_thumbnail             &   2.93\%\\
+        \hline
+ 
+    \end{tabular}
+    \end{center}
+    
+    Algunas variables como geonames\_id que contiene un sólo dato o la variable expense con 207 datos serán eliminados en los siguientes pasos ya que contienen mas del 90\% de información nula, lo cuál perjudica el análisis de la información.
+    
+    \section{Estadística Descriptiva}
+\begin{center}
+\begin{tabular}{||c|c|c|c|c|c|c|c|c||}
+\hline
+& c\_lat           & c\_lon            & c\_price         & c\_price\_aprox\_local\_currency \\
+\hline\hline
+count & 156134           & 156134            & 185454           & 185454                           \\
+mean  & 21.034041540242  & -99.0133530053932 & 2559721.73365363 & 3183243.06557337                 \\
+std   & 2.97352809912203 & 5.17021181128755  & 6038333.16636718 & 7963734.31420877                 \\
+min   & 14.843818        & -117.228632       & 50               & 940.42                           \\
+10\%  & 18.917542        & -103.438171       & 13500            & 14864.16                         \\
+20\%  & 19.16150848      & -101.00246024     & 155000           & 252693.13                        \\
+30\%  & 19.367960277     & -100.356804       & 580000           & 672019.707                       \\
+40\%  & 19.454332        & -99.6030794       & 950000           & 1090307.49                       \\
+50\%  & 20.1242815       & -99.2277873       & 1400000          & 1565706.81                       \\
+60\%  & 20.6965424       & -99.168088        & 1880000          & 2105776.52                       \\
+70\%  & 21.039522        & -98.979619523     & 2570554          & 2873765.76                       \\
+80\%  & 22.272658848     & -97.837899572     & 3567479.99999999 & 4063873.78                       \\
+90\%  & 25.643093        & -89.636932        & 5900000          & 6936675.98                       \\
+max   & 41.577487        & 99.206936         & 945000000        & 936451275.4      \\                   
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{||c|c|c|c|c|c|c|c|c||}
+\hline
+      & c\_price\_aprox\_usd & c\_surface\_total\_in\_m2 & c\_surface\_covered\_in\_m2 & c\_price\_per\_m2 \\
+\hline\hline
+count & 185454               & 97630                     & 180635                      & 166908            \\
+mean  & 169244.919603299     & 448.098811840623          & 1993.31448501121            & 16247.7332532109  \\
+std   & 423411.453007493     & 3017.1541337506           & 563709.794917386            & 531832.067114607  \\
+min   & 50                   & -396                      & -324                        & 0.008             \\
+10\%  & 790.29               & 0                         & 46                          & 99.7603322270001  \\
+20\%  & 13435.05             & 35                        & 70                          & 1813.6720144      \\
+30\%  & 35729.575            & 90                        & 90                          & 6428.571429       \\
+40\%  & 57968.87             & 120                       & 120                         & 8333.333333       \\
+50\%  & 83244.64             & 160                       & 150                         & 9941.0024365      \\
+60\%  & 111958.77            & 200                       & 190                         & 11410.25641       \\
+70\%  & 152790.8             & 282                       & 235                         & 13279.209701      \\
+80\%  & 216065.81            & 400                       & 300                         & 16190.47619       \\
+90\%  & 368805.38            & 674                       & 431                         & 23500             \\
+max   & 49788727.19          & 200000                    & 230303030                   & 199500000        \\
+
+\hline
+\end{tabular}
+\end{center}
+
+Al observar las variales de coordenadas vemos que los valores máximos y mínimos de latitud y longitud difieren en las coordenadas máximas y mínimas del territorio mexicano, al crear los distintos graficos se analizaran estos casos particulares.\\
+
+En el caso del precio de propiedades se analizará el valor máximo de esta variable ya que existen propiedades con un precio superior a los 900 millones de pesos mexicanos.\\
+
+La variable superficie total será analizada detalladamente, ya que en el primer percentil la longitud total es de 0 metros cuadrados.\\
+    
+    \section{Visualización de Datos}
+    Gráficas
+
+
+\end{document}
