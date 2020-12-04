@@ -11,6 +11,10 @@ First Data Visualization in Tableau: https://public.tableau.com/profile/edco17#!
 
 Data Visualization
 
+![alt text](precio_mes_comparacion.png)
 
+![alt text](sup_est_limpio.png)
+
+![alt text](titulo_wordcloud.png)
 
 Edgar Cardoso
